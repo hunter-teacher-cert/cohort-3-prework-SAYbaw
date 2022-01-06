@@ -1,6 +1,6 @@
-* Last name:Sabaugh 
-* First name:Steve
-* Github username:SAYbaw
+* Last name: Sabaugh 
+* First name: Steve
+* Github username: SAYbaw
 
 * Instructions:
 
