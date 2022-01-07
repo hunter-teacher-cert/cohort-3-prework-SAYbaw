@@ -20,7 +20,7 @@ public class HelloUser {
 
     answer = num1 * num2;
 
-    JOptionPane.showMessageDialog(null, "" + Integer.toString(answer));
+    JOptionPane.showMessageDialog(null, "the answer is " + Integer.toString(answer));
   }
 
 }
