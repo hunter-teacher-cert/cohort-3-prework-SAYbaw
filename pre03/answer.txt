@@ -16,6 +16,9 @@
               | control:return to baffle()|
     baffle()  | return to zoop()|
 
+    Terminal  |No, I wug.\n|
+              |
+
 3)  You would have what is called a terminal recursive loop (a feedback loop that never ends). The baffle() method calls the ping() method. By placing the baffle() method inside of the ping() method, would make the ping() method call itself. Without a control structure to control that recursive loop, you keep having the baffle() and ping() methods calling themselves over and over again so the output would be "wug[PERIOD]\n" forever 
 wug.
 wug.
