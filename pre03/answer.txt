@@ -1,0 +1,25 @@
+1)  No, I wug.
+    You wugga wug.
+    I wug.
+
+    The main() method outputs "No[COMMA][SPACE]I[SPACE]" with no carriage return (new line). The zoop() method is called and calls the baffle() method, which outputs "wug" (no spaces, puctuation, or escape sequences). baffle() method then calls the ping() method that appends a string literal of a "[PERIOD]" to the output string on the same line. Because the output method used in ping is println()(instead of print() used previously), a carriage return is created for a new line for the next output string.
+
+    Control returns to baffle then returns to zoop() where a print() method outputs "You[SPACE]wugga[SPACE]" and the baffle() method is called again, which outputs "wug" (no spaces, puctuation, or escape sequences). baffle() method then calls the ping() method again that appends a string literal of a "[PERIOD]" to the output string on the same line. Again, println() method is the output method so a carriage return is created for a new line for the next output string.
+
+    The program returns to main() method where a print() method outputs a string "I[SPACE]". Then the baffle() method is called again, which outputs "wug" (no spaces, puctuation, or escape sequences). baffle() method then calls the ping() method again that appends a string literal of a "[PERIOD]" to the output string on the same line.
+
+2)  main()    | output:No, I |
+    zoop()    | control:jump to baffle()|
+    baffle()  | output:wug|
+              | control:jump to ping()|
+    ping()    | output:.\n|
+              | control:return to baffle()|
+    baffle()  | return to zoop()|
+
+3)  You would have what is called a terminal recursive loop (a feedback loop that never ends). The baffle() method calls the ping() method. By placing the baffle() method inside of the ping() method, would make the ping() method call itself. Without a control structure to control that recursive loop, you keep having the baffle() and ping() methods calling themselves over and over again so the output would be "wug[PERIOD]\n" forever 
+wug.
+wug.
+wug.
+wug.
+wug.
+...... a.i.
