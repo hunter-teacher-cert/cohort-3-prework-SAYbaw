@@ -14,7 +14,7 @@
               | control:jump to ping()|
     ping()    | output:.\n|
               | control:return to baffle()|
-    baffle()  | return to zoop()|
+    baffle()  | control:return to zoop()|
 
     Output:   |No, I wug.\n|
               |
