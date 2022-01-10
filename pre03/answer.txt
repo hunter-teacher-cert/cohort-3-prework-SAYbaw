@@ -8,13 +8,18 @@
 
     The program returns to main() method where a print() method outputs a string "I[SPACE]". Then the baffle() method is called again, which outputs "wug" (no spaces, puctuation, or escape sequences). baffle() method then calls the ping() method again that appends a string literal of a "[PERIOD]" to the output string on the same line.
 
-2)  main()    | output:No, I |
-    zoop()    | control:jump to baffle()|
-    baffle()  | output:wug|
-              | control:jump to ping()|
-    ping()    | output:.\n|
-              | control:return to baffle()|
-    baffle()  | control:return to zoop()|
+2)  main()    |variables:[none]|
+              |output:No, I |
+    zoop()    |variables:[none]|
+              |control:jump to baffle()|
+    baffle()  |variables:[none]|
+              |output:wug|
+              |control:jump to ping()|
+    ping()    |variables:[none]|
+              |output:.\n|
+              |control:return to baffle()|
+    baffle()  |variables:[none]|
+              |control:return to zoop()|
 
     Output:   |No, I wug.\n|
               |
