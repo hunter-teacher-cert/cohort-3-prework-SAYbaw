@@ -8,4 +8,22 @@ if (x > 0 && x < 10) {
 
 Exercise 2
 
+1)
+main()      |bizz=5, buzz=2           |
+zoop()      |fred="just for", bob=5   |
+ping()      |strangStrung="not "      |
+            |control:return to zoop() |
+zoop()      |fred="just for", bob=5   |
+            |control:return to main() |
+            |zoop() popped off stack  |
+main()      |bizz=5, buzz=2           |
+clink()     |fork=4                   |
+zoop()      |fred="breakfast ", bob=4 |
+
+2)
+output:     |just for|
+            |any not more |
+            |It's breakfast |
+            |!\n|
+            |
 
