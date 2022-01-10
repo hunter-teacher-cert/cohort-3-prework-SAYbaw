@@ -30,15 +30,15 @@ output:     |just for|
 
 3)
   main()    |n=4  |
-  newline() |n=4  |
+  nLines()  |n=4  |
             |output:\n|
-  newline() |n=3  |
+  nLines()  |n=3  |
             |output:\n|
-  newline() |n=2  |
+  nLines()  |n=2  |
             |output:\n|
-  newline() |n=1  |
+  nLines()  |n=1  |
             |output:\n|
-  newline() |n=0  |
+  nLines()  |n=0  |
             |output:[none]|
 
 
