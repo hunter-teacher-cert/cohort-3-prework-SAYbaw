@@ -6,6 +6,7 @@ if (x > 0 && x < 10) {
     
 }
 
+     
 Exercise 2
 
 1)
@@ -26,4 +27,18 @@ output:     |just for|
             |It's breakfast |
             |!\n|
             |
+
+3)
+  main()    |n=4  |
+  newline() |n=4  |
+            |output:\n|
+  newline() |n=3  |
+            |output:\n|
+  newline() |n=2  |
+            |output:\n|
+  newline() |n=1  |
+            |output:\n|
+  newline() |n=0  |
+            |output:[none]|
+
 
