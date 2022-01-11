@@ -56,10 +56,10 @@ public class Methods {
   * solves the function.
   * WARNING: ANY INTEGER IS > 0 THE MAX
   * SIZE OF THE SECOND INTEGER MUST BE 
-  * LESS THAN THREE OR A STACK OVERFLOW
+  * LESS THAN FOUR OR A STACK OVERFLOW
   * ERROR WILL OCCUR!
-  * @param int m and n are the two parameters of the function.
-  * @return n + 1 if m == 0, if n == 0 returns ack(m-1, n=1), otherwise returns the result of the Ackermann function ack(m, n-1) as the second argument with first argument m, as a recursive function as the second argument in the recusive call of Ackermann with m-1 as the first argument.
+  * @param int m and n are the two parameters of the method.
+  * @return n + 1 if m == 0, if n == 0 returns ack(m-1, n=1), otherwise returns the result of the Ackermann method ack(m, n-1) as the second argument with first argument m, as a recursive method as the second argument in the recusive call of Ackermann with m-1 as the first argument.
   */ 
   public static int ack(int m, int n){
     int result;
