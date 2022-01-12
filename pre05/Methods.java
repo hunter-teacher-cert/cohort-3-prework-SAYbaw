@@ -2,9 +2,12 @@ import java.io.*;
 import java.util.*;
 
 public class Methods {
+//global variable used for tracing
+  //public static int methodCt = 0;
+  
   public static void main(String[]args){
-    int num1 = 0;
-    int num2 = 4;
+    int num1 = 3;
+    int num2 = 5;
     int num3 = 7;
 //Is Divisible exercise 2 call
     if (isDivisible(num1,num2))
@@ -54,23 +57,28 @@ public class Methods {
   * The Ackermann Function
   * Takes two integers and recursively 
   * solves the function.
-  * WARNING: ANY INTEGER IS > 0 THE MAX
-  * SIZE OF THE SECOND INTEGER MUST BE 
+  * WARNING: IF ANY INTEGER IS > 0 THE MAX
+  * SIZE OF THE FIRST INTEGER MUST BE 
   * LESS THAN FOUR OR A STACK OVERFLOW
   * ERROR WILL OCCUR!
   * @param int m and n are the two parameters of the method.
-  * @return n + 1 if m == 0, if n == 0 returns ack(m-1, n=1), otherwise returns the result of the Ackermann method ack(m, n-1) as the second argument with first argument m, as a recursive method as the second argument in the recusive call of Ackermann with m-1 as the first argument.
+  * @return n + 1 if m == 0, if n == 0 returns ack(m-1, n=1), otherwise returns the result of the Ackermann method 
+  ack(m, n-1) as the second argument with first argument m, as a recursive method as 
+  the second argument in the recusive call of Ackermann with m-1 as the first argument.
   */ 
   public static int ack(int m, int n){
-    int result;
+    //used for tracing/debugging
+    //System.out.println(methodCt);
+    //methodCt++;
+    int ackermann;
 
     if (m == 0) 
-      result = n+1;
+      ackermann = n+1;
     else if (n == 0) 
-      result = ack(m-1,1);
+      ackermann = ack(m-1,1);
     else 
-      result = ack(m-1, ack(m,n-1));
+      ackermann = ack(m-1, ack(m,n-1));
 
-    return result;
+    return ackermann;
   }
 }
