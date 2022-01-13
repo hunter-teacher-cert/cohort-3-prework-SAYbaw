@@ -1,0 +1,161 @@
+1)
+n = 16
+LOOP ITERATION 1:i= 16 n = 16
+LOOP ITERATION 2:i=  8 n = 16
+LOOP ITERATION 3:i=  4 n = 16
+LOOP ITERATION 4:i=  2 n = 16
+LOOP TERMINATION:i=  1 n = 16
+
+n = 17
+LOOP ITERATION 1:i = 17 n = 17
+LOOP ITERATION 2:i = 18 n = 17
+LOOP ITERATION 3:i =  9 n = 17
+LOOP ITERATION 4:i = 10 n = 17
+LOOP ITERATION 5:i =  5 n = 17
+LOOP ITERATION 6:i =  6 n = 17
+LOOP ITERATION 7:i =  3 n = 17
+LOOP ITERATION 8:i =  4 n = 17
+LOOP ITERATION 9:i =  2 n = 17
+LOOP TERMINATION:i =  1 n = 17
+
+n = 3
+LOOP ITERATION 1:i =  3 n =  3
+LOOP ITERATION 2:i =  4 n =  3
+LOOP ITERATION 3:i =  2 n =  3
+LOOP TERMINATION:i =  1 n =  3
+
+n = 2
+LOOP ITERATION 1:i =  2 n =  2
+LOOP TERMINATION:i =  1 n =  2
+
+n = 1
+LOOP SKIPPED    :i =  1 n =  1
+
+2)
+n = 16
+16
+8
+4
+2
+
+n = 17
+17
+18
+9
+10
+5
+6
+3
+4
+2
+
+n = 3
+3
+4
+2
+
+n = 2
+2
+
+n = 1
+\n
+
+3)
+In theory, yes or I'll attempt a proper proof. In practice Yes, or kinda depending on how you define integer. By Java's definition of 
+an int, it is a simple proof.
+
+In theory, this is a different problem than the Collatz conjecture, which is not proven. This problen basically involves 3 different 
+math operations and 1 for the proof. Divisibility of 2, modulo, 
+addition of 1 (aka counting), and exponents (or powers I'll explain 
+later). All of which have been proven.
+
+First, we know by the rule of divisibility of 2 that any number, 
+exluding 0 itself, with 0, 2, 4, 6, 8 as the units digit is 
+divisible by 2.
+
+Second modulo of any positive even integer = 0 is true, because modulo
+is used in the formal proof of the divisibility of 2 rule.
+
+Third, addition of 1 to any positive integer will produce the next successive integer because of the successor function. Where 
+n + 0 = S(n). If n in the successor function is defined n=1 as the 
+successor of 0, then by the law of communitivity we have S(n)=S(n+0), 
+=a+S(0), =a+1. So, we proved we can count.
+
+Finally, this algorithm, where n>=2 will always reduce to powers of 2.
+And where the number is >=3 (excluding 4) n will be reduced to powers 
+of 2 from 4 then to 2. The larger the n, the more powers of two
+will be formed consecutivley until n = 1. When the powers of 2 pattern is in state, the loop will end soon because each successive iteration will divide the power of 2 in half until it's reduced by 2 itself, thus halfing itself and hitting the sentinal value of 1 and exiting the loop. So, 2^n is true by the general rule of powers for any positive n. 
+
+Where n=1 the loop is bypassed. Therefore, in theory, this algorithm
+will terminate the loop for any positive integer.
+
+Q.E.D.?
+
+In practice this is proveable but with different rationale. The 
+limitations of Java and the hardware. The signed int variable in the 
+case of n in this program is limited to 32 bits (4 bytes) or 
+-(2^16 - 2) to +(2^16 - 3). The reason for subtraction of 2 for 
+negative and 3 for the positive is that our int n is by default 
+signed, so you subtract 1 because the formula for the highest 
+number a byte can hold is 2^n-1 (n in this case = the bit length of the data), subtract another bit because of the last bit in 2s compliment binary is the sign bit, and subtract 
+another bit fro the positive side because 0, as interpreted by the 
+computer and Java, is a positive number (although in actuality 0 is 
+neither positive or negative). So the MIN_VALUE of n = -2147483648 
+and the MAX_VALUE of n = 2147483647. Since we are only dealing with 
+positive integers the later is the highest positive integer. If n was declared an unsigned int it would be +(2^64 - 1) and an unsigned 
+long would be (2^128 - 1). However, if you ran this program as int n = 
+Integer.MAX_VALUE, n would enter loop, print the MAX_VALUE of n, 
+then in the if block it would be tested for the mod 2 == 0 condition, 
+fail, then go to the else clause, try to add 1 to itself and would 
+underflow to n = MIN_VALUE, which is negative and much smaller than 1. 
+When n encounters the loop variable again, it fails because it is 
+less than 1 and thus the loop is terminated. Here is the table.
+
+LOOP ITERATION 1:i = 2147483647 n = 2147483647
+LOOP TERMINATION:i =-2147483648 n = 2147483647
+
+
+In older versions of Java this may have resulted in an underflow 
+error. As with the first proof 1 bypasses the loop, thus all 
+positive values of int n > 1 will terminate this loop. Here would be 
+the table if int n = Integer.MAX_VALUE - 1 (so that one can be added 
+to it for the algorithm to execute.
+
+LOOP ITERATION  1:i = 2147483646 n = 2147483646
+LOOP ITERATION  2:i = 1073741823 n = 2147483646
+LOOP ITERATION  3:i = 1073741824 n = 2147483646 Begin pow of 2 pattern 
+LOOP ITERATION  4:i =  536870912 n = 2147483646
+LOOP ITERATION  5:i =  268435456 n = 2147483646
+LOOP ITERATION  6:i =  134217728 n = 2147483646
+LOOP ITERATION  7:i =   67108864 n = 2147483646 
+LOOP ITERATION  8:i =   33554432 n = 2147483646
+LOOP ITERATION  9:i =   16777216 n = 2147483646
+LOOP ITERATION 10:i =    8388608 n = 2147483646
+LOOP ITERATION 11:i =    4194304 n = 2147483646
+LOOP ITERATION 12:i =    2097152 n = 2147483646
+LOOP ITERATION 13:i =    1048576 n = 2147483646
+LOOP ITERATION 14:i =     524288 n = 2147483646
+LOOP ITERATION 15:i =     262144 n = 2147483646
+LOOP ITERATION 16:i =     131072 n = 2147483646
+LOOP ITERATION 17:i =      65536 n = 2147483646 
+LOOP ITERATION 18:i =      32768 n = 2147483646 
+LOOP ITERATION 19:i =      16384 n = 2147483646 
+LOOP ITERATION 20:i =       8192 n = 2147483646
+LOOP ITERATION 21:i =       4096 n = 2147483646
+LOOP ITERATION 22:i =       2048 n = 2147483646
+LOOP ITERATION 23:i =       1024 n = 2147483646
+LOOP ITERATION 24:i =        512 n = 2147483646
+LOOP ITERATION 25:i =        256 n = 2147483646
+LOOP ITERATION 26:i =        128 n = 2147483646
+LOOP ITERATION 27:i =         64 n = 2147483646
+LOOP ITERATION 28:i =         32 n = 2147483646
+LOOP ITERATION 29:i =         16 n = 2147483646
+LOOP ITERATION 30:i =          8 n = 2147483646
+LOOP ITERATION 31:i =          4 n = 2147483646
+LOOP ITERATION 32:i =          2 n = 2147483646
+LOOP TERMINATION :i =          1 n = 2147483646
+
+Q.E.D.!
+
+
+ 
