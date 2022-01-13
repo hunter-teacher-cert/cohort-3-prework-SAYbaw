@@ -61,10 +61,12 @@ n = 1
 \n
 
 3)
-In theory, yes or I'll attempt a proper proof. In practice Yes, or kinda depending on how you define integer. By Java's definition of 
+In theory, yes or I'll attempt a proper proof. In practice Yes, or 
+kinda depending on how you define integer. By Java's definition of 
 an int, it is a simple proof.
 
-In theory, this is a different problem than the Collatz conjecture, which is not proven. This problen basically involves 3 different 
+In theory, this is a different problem than the Collatz conjecture, 
+which is not proven. This problen basically involves 3 different 
 math operations and 1 for the proof. Divisibility of 2, modulo, 
 addition of 1 (aka counting), and exponents (or powers I'll explain 
 later). All of which have been proven.
@@ -76,15 +78,21 @@ divisible by 2.
 Second modulo of any positive even integer = 0 is true, because modulo
 is used in the formal proof of the divisibility of 2 rule.
 
-Third, addition of 1 to any positive integer will produce the next successive integer because of the successor function. Where 
+Third, addition of 1 to any positive integer will produce the next 
+successive integer because of the successor function. Where 
 n + 0 = S(n). If n in the successor function is defined n=1 as the 
 successor of 0, then by the law of communitivity we have S(n)=S(n+0), 
-=a+S(0), =a+1. So, we proved we can count.
+=n+S(0), =n+1. So, we proved we can count.
 
 Finally, this algorithm, where n>=2 will always reduce to powers of 2.
 And where the number is >=3 (excluding 4) n will be reduced to powers 
 of 2 from 4 then to 2. The larger the n, the more powers of two
-will be formed consecutivley until n = 1. When the powers of 2 pattern is in state, the loop will end soon because each successive iteration will divide the power of 2 in half until it's reduced by 2 itself, thus halfing itself and hitting the sentinal value of 1 and exiting the loop. So, 2^n is true by the general rule of powers for any positive n. 
+will be formed consecutivley until n = 1. When the powers of 2 pattern 
+is in state, the loop will end soon because each successive iteration 
+will divide the power of 2 in half until it's reduced by 2 itself, 
+thus halfing itself and hitting the sentinal value of 1 and exiting 
+the loop. So, 2^n is true by the general rule of powers for any 
+positive n. 
 
 Where n=1 the loop is bypassed. Therefore, in theory, this algorithm
 will terminate the loop for any positive integer.
@@ -97,19 +105,23 @@ case of n in this program is limited to 32 bits (4 bytes) or
 -(2^16 - 2) to +(2^16 - 3). The reason for subtraction of 2 for 
 negative and 3 for the positive is that our int n is by default 
 signed, so you subtract 1 because the formula for the highest 
-number a byte can hold is 2^n-1 (n in this case = the bit length of the data), subtract another bit because of the last bit in 2s compliment binary is the sign bit, and subtract 
-another bit fro the positive side because 0, as interpreted by the 
+number a byte can hold is 2^n-1 (n in this case = the bit length of 
+the data), subtract another bit because of the last bit in 2s 
+compliment binary is the sign bit, and subtract 
+another bit from the positive side because 0, as interpreted by the 
 computer and Java, is a positive number (although in actuality 0 is 
 neither positive or negative). So the MIN_VALUE of n = -2147483648 
 and the MAX_VALUE of n = 2147483647. Since we are only dealing with 
-positive integers the later is the highest positive integer. If n was declared an unsigned int it would be +(2^64 - 1) and an unsigned 
-long would be (2^128 - 1). However, if you ran this program as int n = 
-Integer.MAX_VALUE, n would enter loop, print the MAX_VALUE of n, 
-then in the if block it would be tested for the mod 2 == 0 condition, 
-fail, then go to the else clause, try to add 1 to itself and would 
-underflow to n = MIN_VALUE, which is negative and much smaller than 1. 
-When n encounters the loop variable again, it fails because it is 
-less than 1 and thus the loop is terminated. Here is the table.
+positive integers the later is the highest positive integer. If n 
+was declared an unsigned int it would be +(2^64 - 1) and an unsigned 
+long would be (2^128 - 1). However, if you ran this program as 
+int n = Integer.MAX_VALUE, n would enter loop, print the MAX_VALUE of 
+n, then in the if block it would be tested for the mod 2 == 0 
+condition, fail, then go to the else clause, try to add 1 to itself 
+and would underflow to n = MIN_VALUE, which is negative and much 
+smaller than 1. When n encounters the loop variable again, it fails 
+because it is less than 1 and thus the loop is terminated. Here is 
+the table.
 
 LOOP ITERATION 1:i = 2147483647 n = 2147483647
 LOOP TERMINATION:i =-2147483648 n = 2147483647
