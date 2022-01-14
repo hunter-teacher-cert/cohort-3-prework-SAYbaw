@@ -110,13 +110,19 @@ the bit length of the data) and because of the last bit in 2s
 compliment binary is the sign bit, the absolute value of the data
 stored will be 31 bits. Our int n is by default signed. We then 
 subtract an additional 1 from the positive side because 0, 
-as interpreted by the computer and Java, is a positive number (although in actuality 0 is neither positive or negative). So the MIN_VALUE of n = -2147483648 and the MAX_VALUE of n = 2147483647. Since we are only dealing with positive integers, the later is the 
-highest positive integer. If n was declared an unsigned int it would be +(2^64 - 1) and an unsigned long would be (2^128 - 1). However, 
+as interpreted by the computer and Java, is a positive number 
+(although in actuality 0 is neither positive or negative). So the 
+MIN_VALUE of n = -2147483648 and the MAX_VALUE of n = 2147483647. 
+Since we are only dealing with positive integers, the later is the 
+highest positive integer. If n was declared an unsigned int it would 
+be +(2^64 - 1) and an unsigned long would be (2^128 - 1). However, 
 if you run this program as int n = Integer.MAX_VALUE, n would enter 
 loop, print the MAX_VALUE of n, then in the if block it would be 
 tested for the mod 2 == 0 condition, fail, then go to the else clause, 
-try to add 1 to itself and would underflow to n = MIN_VALUE, which is negative and much smaller than 1. When n encounters the loop variable 
-again, it fails because it is less than 1, and thus the loop is terminated. Here is the table.
+try to add 1 to itself and would underflow to n = MIN_VALUE, which is 
+negative and much smaller than 1. When n encounters the loop variable 
+again, it fails because it is less than 1, and thus the loop is 
+terminated. Here is the table.
 
 LOOP ITERATION 1:i = 2147483647 n = 2147483647
 LOOP TERMINATION:i =-2147483648 n = 2147483647
