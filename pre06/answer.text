@@ -82,7 +82,8 @@ Third, addition of 1 to any positive integer will produce the next
 successive integer because of the successor function. Where 
 n + 0 = S(n). If n in the successor function is defined n=1 as the 
 successor of 0, then by the law of communitivity we have S(n)=S(n+0), 
-=n+S(0), =n+1. So, we proved we can count.
+=n+S(0), =n+1. So, we proved we can count by one as we approach 
+infinity.
 
 Finally, this algorithm, where n>=2 will always reduce to powers of 2.
 And where the number is >=3 (excluding 4) n will be reduced to powers 
@@ -99,33 +100,26 @@ will terminate the loop for any positive integer.
 
 Q.E.D.?
 
-In practice this is proveable but with different rationale. The 
+In practice this is proveable but with different rationale, the 
 limitations of Java and the hardware. The signed int variable in the 
 case of n in this program is limited to 32 bits (4 bytes) or 
--(2^16 - 2) to +(2^16 - 3). The reason for subtraction of 2 for 
-negative and 3 for the positive is that our int n is by default 
-signed, so you subtract 1 because the formula for the highest 
-number a byte can hold is 2^n-1 (n in this case = the bit length of 
-the data), subtract another bit because of the last bit in 2s 
-compliment binary is the sign bit, and subtract 
-another bit from the positive side because 0, as interpreted by the 
-computer and Java, is a positive number (although in actuality 0 is 
-neither positive or negative). So the MIN_VALUE of n = -2147483648 
-and the MAX_VALUE of n = 2147483647. Since we are only dealing with 
-positive integers the later is the highest positive integer. If n 
-was declared an unsigned int it would be +(2^64 - 1) and an unsigned 
-long would be (2^128 - 1). However, if you ran this program as 
-int n = Integer.MAX_VALUE, n would enter loop, print the MAX_VALUE of 
-n, then in the if block it would be tested for the mod 2 == 0 
-condition, fail, then go to the else clause, try to add 1 to itself 
-and would underflow to n = MIN_VALUE, which is negative and much 
-smaller than 1. When n encounters the loop variable again, it fails 
-because it is less than 1 and thus the loop is terminated. Here is 
-the table.
+-(2^31) to +(2^31 - 1). The reason why it's ^31 (reason for 
+subtraction of 1 from power) is because the formula for 
+the highest number a data type can hold is (2^n)-1 (n in this case = 
+the bit length of the data) and because of the last bit in 2s 
+compliment binary is the sign bit, the absolute value of the data
+stored will be 31 bits. Our int n is by default signed. We then subtract an additional 1 from the positive side because 0, as interpreted by the computer and Java, is a positive number (although in actuality 0 is neither positive or negative). So the MIN_VALUE of 
+n = -2147483648 and the MAX_VALUE of n = 2147483647. Since we are 
+only dealing with positive integers, the later is the highest positive integer. If n was declared an unsigned int it would be +(2^64 - 1) 
+and an unsigned long would be (2^128 - 1). However, if you run this 
+program as int n = Integer.MAX_VALUE, n would enter loop, print the 
+MAX_VALUE of n, then in the if block it would be tested for the 
+mod 2 == 0 condition, fail, then go to the else clause, try to add 1 to itself and would underflow to n = MIN_VALUE, which is negative and 
+much smaller than 1. When n encounters the loop variable again, it fails because it is less than 1, and thus the loop is terminated. Here 
+is the table.
 
 LOOP ITERATION 1:i = 2147483647 n = 2147483647
 LOOP TERMINATION:i =-2147483648 n = 2147483647
-
 
 In older versions of Java this may have resulted in an underflow 
 error. As with the first proof 1 bypasses the loop, thus all 
@@ -135,37 +129,37 @@ to it for the algorithm to execute.
 
 LOOP ITERATION  1:i = 2147483646 n = 2147483646
 LOOP ITERATION  2:i = 1073741823 n = 2147483646
-LOOP ITERATION  3:i = 1073741824 n = 2147483646 Begin pow of 2 pattern 
-LOOP ITERATION  4:i =  536870912 n = 2147483646
-LOOP ITERATION  5:i =  268435456 n = 2147483646
-LOOP ITERATION  6:i =  134217728 n = 2147483646
-LOOP ITERATION  7:i =   67108864 n = 2147483646 
-LOOP ITERATION  8:i =   33554432 n = 2147483646
-LOOP ITERATION  9:i =   16777216 n = 2147483646
-LOOP ITERATION 10:i =    8388608 n = 2147483646
-LOOP ITERATION 11:i =    4194304 n = 2147483646
-LOOP ITERATION 12:i =    2097152 n = 2147483646
-LOOP ITERATION 13:i =    1048576 n = 2147483646
-LOOP ITERATION 14:i =     524288 n = 2147483646
-LOOP ITERATION 15:i =     262144 n = 2147483646
-LOOP ITERATION 16:i =     131072 n = 2147483646
-LOOP ITERATION 17:i =      65536 n = 2147483646 
-LOOP ITERATION 18:i =      32768 n = 2147483646 
-LOOP ITERATION 19:i =      16384 n = 2147483646 
-LOOP ITERATION 20:i =       8192 n = 2147483646
-LOOP ITERATION 21:i =       4096 n = 2147483646
-LOOP ITERATION 22:i =       2048 n = 2147483646
-LOOP ITERATION 23:i =       1024 n = 2147483646
-LOOP ITERATION 24:i =        512 n = 2147483646
-LOOP ITERATION 25:i =        256 n = 2147483646
-LOOP ITERATION 26:i =        128 n = 2147483646
-LOOP ITERATION 27:i =         64 n = 2147483646
-LOOP ITERATION 28:i =         32 n = 2147483646
-LOOP ITERATION 29:i =         16 n = 2147483646
-LOOP ITERATION 30:i =          8 n = 2147483646
-LOOP ITERATION 31:i =          4 n = 2147483646
-LOOP ITERATION 32:i =          2 n = 2147483646
-LOOP TERMINATION :i =          1 n = 2147483646
+LOOP ITERATION  3:i = 1073741824 n = 2147483646 Begin pow of 2 pattern
+LOOP ITERATION  4:i = 536870912  n = 2147483646    loop must terminate
+LOOP ITERATION  5:i = 268435456  n = 2147483646
+LOOP ITERATION  6:i = 134217728  n = 2147483646
+LOOP ITERATION  7:i = 67108864   n = 2147483646
+LOOP ITERATION  8:i = 33554432   n = 2147483646
+LOOP ITERATION  9:i = 16777216   n = 2147483646
+LOOP ITERATION 10:i = 8388608    n = 2147483646
+LOOP ITERATION 11:i = 4194304    n = 2147483646
+LOOP ITERATION 12:i = 2097152    n = 2147483646
+LOOP ITERATION 13:i = 1048576    n = 2147483646
+LOOP ITERATION 14:i = 524288     n = 2147483646
+LOOP ITERATION 15:i = 262144     n = 2147483646
+LOOP ITERATION 16:i = 131072     n = 2147483646
+LOOP ITERATION 17:i = 65536      n = 2147483646
+LOOP ITERATION 18:i = 32768      n = 2147483646
+LOOP ITERATION 19:i = 16384      n = 2147483646
+LOOP ITERATION 20:i = 8192       n = 2147483646
+LOOP ITERATION 21:i = 4096       n = 2147483646
+LOOP ITERATION 22:i = 2048       n = 2147483646
+LOOP ITERATION 23:i = 1024       n = 2147483646
+LOOP ITERATION 24:i = 512        n = 2147483646
+LOOP ITERATION 25:i = 256        n = 2147483646
+LOOP ITERATION 26:i = 128        n = 2147483646
+LOOP ITERATION 27:i = 64         n = 2147483646
+LOOP ITERATION 28:i = 32         n = 2147483646
+LOOP ITERATION 29:i = 16         n = 2147483646
+LOOP ITERATION 30:i = 8          n = 2147483646
+LOOP ITERATION 31:i = 4          n = 2147483646
+LOOP ITERATION 32:i = 2          n = 2147483646 End pow of 2 pattern
+LOOP TERMINATION :i = 1          n = 2147483646
 
 Q.E.D.!
 
