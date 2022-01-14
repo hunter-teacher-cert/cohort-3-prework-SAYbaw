@@ -128,7 +128,7 @@ LOOP ITERATION 1:i = 2147483647 n = 2147483647
 LOOP TERMINATION:i =-2147483648 n = 2147483647
 
 In older versions of Java this may have resulted in an underflow 
-error. As with the first proof 1 bypasses the loop, thus all 
+error. As with the first proof, 1 bypasses the loop, thus all 
 positive values of int n > 1 will terminate this loop. Here would be 
 the table if int n = Integer.MAX_VALUE - 1 (so that one can be added 
 to it for the algorithm to execute.
