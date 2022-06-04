@@ -1,1 +1,5 @@
+The banana() method returns the product of all the elements of an array of integers. Kiwi is the accumulator variable.
 
+The grapefruit(method) returns the index from an array of integers if it finds a match (the first) within the array equal in value to grape, the value we are searching for. It returns a -1 value to denote it did not find a match.
+
+The pineapple() method is another search algorithm that returns the number of times (pear) apple appears in an array of integers. The variable pear is the accumulator, apple is the search variable parameter, and pine is the "each" or temporary element variable for the enhanced 'for' loop. 
