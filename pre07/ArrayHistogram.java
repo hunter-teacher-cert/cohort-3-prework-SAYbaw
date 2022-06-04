@@ -19,7 +19,7 @@ public class ArrayHistogram {
 	    Random random = new Random();
 	    int[] a = new int[size];
 	    for (int i = 0; i < a.length; i++) {
-	        a[i] = random.nextInt(size);
+	        a[i] = random.nextInt(100);
 	    }
 	    return a;
 	}
