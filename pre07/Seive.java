@@ -27,13 +27,13 @@ public class Seive {
 	    
 	    return randInt;
 	}
-public static void display() {
+  public static void display() {
 		int randCeilingExcl = 10000;
-		int randTestNum = randomInt(randCeilingExcl);
-		boolean [] primesTests = seive(randTestNum);
+		int randTestN = randomInt(randCeilingExcl);
+		boolean [] primesTests = seive(randTestN);
 		
 		System.out.println("+---List of Prime Numbers from 0 to n - 1:---+");
-		System.out.printf("|n= %-41d|\n", randTestNum);
+		System.out.printf("|n= %-41d|\n", randTestN);
 		
 		for (int i = 2;i < primesTests.length;i++) {
 			if (primesTests[i] == true) {
