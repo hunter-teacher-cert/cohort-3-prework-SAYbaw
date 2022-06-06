@@ -27,7 +27,7 @@ public class Seive {
 	    
 	    return randInt;
 	}
-  public static void display() {
+  	public static void display() {
 		int randCeilingExcl = 10000;
 		int randTestN = randomInt(randCeilingExcl);
 		boolean [] primesTests = seive(randTestN);
