@@ -8,7 +8,7 @@ public class Craps {
 	}
 	public static int roll(int n) {
 		Random random = new Random();
-	  int dieRoll = random.nextInt(n) + 1;
+	  	int dieRoll = random.nextInt(n) + 1;
 		return dieRoll;
 	}
 	public static int shoot(int dice, int sides) {
@@ -17,6 +17,7 @@ public class Craps {
 		for (int i = 0;i < dice;i++) {
 			int intmResult = roll(sides);
 			result += intmResult;
+			
 			if (sides == 6) {
 				drawDie(intmResult);
 			}
@@ -89,6 +90,7 @@ public class Craps {
 		System.out.println("+---------+---------+");
 		
 		for (int i = 0;i < roundNum;i++) {
+			
 			if(results[i] != null) {
 				System.out.printf("|%6d   |  %6s |\n", i + 1, results[i]);
 			}
