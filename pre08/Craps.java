@@ -77,7 +77,8 @@ public class Craps {
 				roundAmt = numGrabber.nextInt();
 			} while(roundAmt <= 0);
 		} catch (Exception e) {
-			System.out.println("YOU MUST ENTER AN INTEGER 1 OR ABOVE! PLEASE RESTART CRAPS GAME.");	
+			System.out.println("YOU MUST ENTER AN INTEGER 1 OR ABOVE! PLEASE RESTART CRAPS GAME.");
+      System.exit(0);
 		}
 		System.out.println();
 		return roundAmt;
