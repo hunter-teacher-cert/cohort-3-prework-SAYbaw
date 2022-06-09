@@ -220,6 +220,6 @@ public class Craps {
 		System.out.println("For the OLDEST, ESTABLISHED, PERMANENT, FLOATING, CRAPS GAME...");
 		System.out.println("IN NEW YORK...(Now powered by Java TM)");
 		drawDie(3);
-    drawDie(4);
+    		drawDie(4);
 	}
 }
