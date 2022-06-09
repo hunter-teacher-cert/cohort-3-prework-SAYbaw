@@ -219,6 +219,7 @@ public class Craps {
 		System.out.println("Welcome To Good Ol' Reliable Stephen's...Stephen Detroit's...");
 		System.out.println("For the OLDEST, ESTABLISHED, PERMANENT, FLOATING, CRAPS GAME...");
 		System.out.println("IN NEW YORK...(Now powered by Java TM)");
-		System.out.println();
+		drawDie(3);
+    drawDie(4);
 	}
 }
